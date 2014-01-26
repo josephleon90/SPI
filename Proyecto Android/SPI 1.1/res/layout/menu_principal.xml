@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent" >
+
+	<ImageView
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:src="@drawable/background"
+		android:scaleType="fitXY"
+		android:contentDescription="@string/imagen" >
+	</ImageView>
+
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="vertical" 
+	    android:paddingLeft="16dp"
+	    android:paddingRight="16dp"
+	    android:paddingTop="5dp">
+	
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:paddingTop="16dp">
+	
+	        <TextView
+	            android:id="@+id/textView1"
+	            android:layout_width="0dp"
+	            android:layout_height="fill_parent"
+	            android:layout_weight="1"
+	            android:text="@string/menu_TV"
+	            android:gravity="center"
+	            android:textSize="18sp"
+	            android:textStyle="bold"
+	            android:textColor="@color/white"   />
+			
+			<ImageView
+	            android:id="@+id/imageView1"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:contentDescription="@string/logo_des_IV"
+	            android:src="@drawable/logo_sip"/>
+	
+	    </LinearLayout>
+
+		<!-- Comentado debido a que en el emulador de la maquina virtual no corre esto
+		<view 
+	        android:background="@color/silver"
+	  		android:id="@+id/lineaHorizontal2"
+	  		android:layout_height="2dp"
+	  		android:layout_width="fill_parent"
+	  		android:layout_marginTop="12dp">
+		</view>
+		-->
+	
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="75dp" 
+	        android:layout_marginTop="8dp">
+	
+	        <ImageView
+	            android:id="@+id/buscar_IV"
+	            android:layout_width="wrap_content"
+	            android:layout_height="fill_parent"
+	            android:src="@drawable/ic_launcher"
+	            android:layout_weight="0.15"
+	            android:gravity="center"
+	            android:contentDescription="@string/imagen" />
+	
+	        <LinearLayout
+	            android:layout_width="0dp"
+	            android:layout_height="fill_parent"
+	            android:orientation="vertical" 
+	            android:layout_weight="0.85">
+	
+	            <TextView
+	                android:id="@+id/textView2"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:text="@string/buscar_TV"
+	                android:textAppearance="?android:attr/textAppearanceMedium" 
+	                android:gravity="center"
+	                android:textColor="@color/white" 
+	                android:textStyle="bold" />
+	
+	            <TextView
+	                android:id="@+id/textView3"
+	                android:layout_width="fill_parent"
+	                android:layout_height="fill_parent"
+	                android:text="@string/buscar_desc_TV"
+	                android:textAppearance="?android:attr/textAppearanceSmall"
+	                android:gravity="left" 
+	                android:layout_gravity="bottom"
+	                android:textColor="@color/white"
+	                 />
+	
+	        </LinearLayout>
+	
+	    </LinearLayout>
+	    
+		<!-- Comentado debido a que en el emulador de la maquina virtual no corre esto
+	 	<view 
+	        android:background="@color/silver"
+	  		android:id="@+id/lineaHorizontal1"
+	  		android:layout_height="2dp"
+	  		android:layout_width="fill_parent"
+	  		android:layout_marginTop="12dp">
+		</view>
+	    -->
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="75dp" 
+	        android:layout_marginTop="8dp">
+	
+	        <ImageView
+	            android:id="@+id/avisos_IV"
+	            android:layout_width="wrap_content"
+	            android:layout_height="fill_parent"
+	            android:src="@drawable/ic_launcher"
+	            android:layout_weight="0.15"
+	            android:gravity="center"
+	            android:contentDescription="@string/imagen" />
+	
+	        <LinearLayout
+	            android:layout_width="0dp"
+	            android:layout_height="fill_parent"
+	            android:orientation="vertical" 
+	            android:layout_weight="0.85">
+	
+	            <TextView
+	                android:id="@+id/textView4"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:text="@string/avisos_TV"
+	                android:textAppearance="?android:attr/textAppearanceMedium" 
+	                android:gravity="center"
+	                android:textColor="@color/white"
+	                android:textStyle="bold" />
+	
+	            <TextView
+	                android:id="@+id/textView5"
+	                android:layout_width="fill_parent"
+	                android:layout_height="fill_parent"
+	                android:text="@string/avisos_desc_TV"
+	                android:textAppearance="?android:attr/textAppearanceSmall"
+	                android:gravity="left"
+	                android:textColor="@color/white"   />
+	
+	        </LinearLayout>
+	        
+	    </LinearLayout>
+	    
+		<!-- Comentado debido a que en el emulador de la maquina virtual no corre esto
+	    <view 
+			android:background="@color/silver"
+			android:id="@+id/lineaHorizontal3"
+			android:layout_height="2dp"
+			android:layout_width="fill_parent"
+			android:layout_marginTop="12dp">
+		</view>
+		-->
+	</LinearLayout>
+
+</FrameLayout>

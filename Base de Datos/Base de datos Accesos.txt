@@ -1,0 +1,6 @@
+
+Usuario con todos los privilegios de Mysql
+
+Base de datos: josephka_spi
+usuer: josephka_admin
+pass: JosephYDF1990

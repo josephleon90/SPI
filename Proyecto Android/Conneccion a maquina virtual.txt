@@ -1,0 +1,2 @@
+cd C:\Users\Joseph\Desktop\adt-bundle-windows-x86-20131030\adt-bundle-windows-x86-20131030\sdk\platform-tools
+adb connect ip

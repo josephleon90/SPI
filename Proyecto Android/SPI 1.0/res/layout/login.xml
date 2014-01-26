@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent" >
+
+	<ImageView
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:src="@drawable/background2"
+		android:scaleType="fitXY"
+		android:contentDescription="@string/imagen" >
+	</ImageView>
+	
+	<!-- 
+	<ImageView
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:src="@drawable/background"
+		android:scaleType="centerCrop" >
+	</ImageView> 
+	-->
+
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="vertical"
+	    android:padding="8dp" >
+	    
+		<TextView
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@string/login"
+	        android:textColor="@color/white"
+	        android:textSize="20sp" 
+	        android:paddingBottom="8sp"/>
+	
+	    <TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/usuario_TV"
+	        android:textColor="@color/white"   />
+	
+	    <EditText
+	        android:id="@+id/usuario_ET"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:ems="10" 
+	        android:hint="@string/usuario_ET"
+	        >
+	
+	        <requestFocus />
+	    </EditText>
+	
+	    <TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/clave_TV"
+	        android:textColor="@color/white"   />
+	
+	    <EditText
+	        android:id="@+id/clave_ET"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:ems="10" 
+	        android:hint="@string/clave_ET"/>
+	
+	
+	
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:gravity="center" >
+	        
+	        <Button
+	            android:id="@+id/ingresar_But"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="@string/ingresar_But" 
+	            android:onClick="ingresar" />
+	
+	        <Button
+	            android:id="@+id/cerrar_But"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:onClick="salir"
+	            android:text="@string/salir_But" />
+	
+	    </LinearLayout>
+	    
+	</LinearLayout>
+</FrameLayout>
