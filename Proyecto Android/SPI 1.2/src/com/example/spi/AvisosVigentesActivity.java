@@ -74,19 +74,14 @@ public class AvisosVigentesActivity extends Activity {
 		new CargaAvisos().execute();
 		
 		//Lazo para cargar imagenes en forma paralela
-		do{
-			if(avisos_cargados){
-				sta = new PublicidadAdapter(AvisosVigentesActivity.this, listaAvisos);
-		        list.setAdapter(sta);
-		        for (Publicidad s : listaAvisos) {
-	                // START LOADING IMAGES FOR EACH STUDENT
-	                s.loadImage(sta);
-	                }   
-		        break;
-			}
-			else System.out.println("Avisos no estan cargados aun");
+//		do{
+//			if(avisos_cargados){
+				
+//		        break;
+//			}
+//			else System.out.println("Avisos no estan cargados aun");
 
-		}while(!avisos_cargados);
+//		}while(!avisos_cargados);
 
 
 	}
@@ -145,6 +140,7 @@ public class AvisosVigentesActivity extends Activity {
 				int success = json.getInt(TAG_SUCCESS);
 
 				if (success == 1) {
+					System.out.println("elementos");
 					listaAvisos = new HashSet<Publicidad>();
 					avisos = json.getJSONArray(TAG_AVISOS);
 					Publicidad aviso;
@@ -163,6 +159,8 @@ public class AvisosVigentesActivity extends Activity {
 						aviso.setLocalComercial(lc);
 						
 						listaAvisos.add(aviso);
+						
+						System.out.println("elementos"+j);
 						
 					}
 
@@ -185,6 +183,15 @@ public class AvisosVigentesActivity extends Activity {
 		 * After completing background task Dismiss the progress dialog
 		 * **/
 		protected void onPostExecute(String file_url) {
+			
+			System.out.println("jadjsjdja");
+			
+			sta = new PublicidadAdapter(AvisosVigentesActivity.this, listaAvisos);
+	        list.setAdapter(sta);
+	        for (Publicidad s : listaAvisos) {
+	        	// START LOADING IMAGES FOR EACH STUDENT
+	        	s.loadImage(sta);
+            }   
 
 			avisos_cargados=true;	
 //			// dismiss the dialog after getting all products

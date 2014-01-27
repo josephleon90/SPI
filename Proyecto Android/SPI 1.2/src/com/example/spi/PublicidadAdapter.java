@@ -22,6 +22,7 @@ public class PublicidadAdapter extends BaseAdapter{
  
     public PublicidadAdapter(Context context, HashSet<Publicidad> items) {
         mInflater = LayoutInflater.from(context);
+        System.out.println("que pasa??");
         this.items = items;
     }
  
