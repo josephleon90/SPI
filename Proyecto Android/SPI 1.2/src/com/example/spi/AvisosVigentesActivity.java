@@ -49,7 +49,7 @@ public class AvisosVigentesActivity extends Activity {
 	private PublicidadAdapter sta;
 
 	// url to get all images list
-	private static String url_avisos_vigentes = "http://10.0.2.2/android_connect/lee_publicidad.php";
+	private static String url_avisos_vigentes = Global.HOST_API+Global.API_FOLDER+"/lee_publicidad.php";
 
 	// JSON Node names
 	private static final String TAG_SUCCESS = "success";
@@ -165,8 +165,6 @@ public class AvisosVigentesActivity extends Activity {
 						listaAvisos.add(aviso);
 						
 					}
-					
-
 
 				} else {
 					System.out.println("No hay avisos vigentes");

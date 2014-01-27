@@ -8,4 +8,6 @@ public  class  Global extends Application {
 	public String USUARIO_NOMBRE = "GENERICO";
 	public String USUARIO_APELLIDO = "";
 	public String USUARIO_PLACA = "";
+	public static final String HOST_API = "http://192.168.1.107:8888";
+	public static final String API_FOLDER = "/android_connect";
 } 

@@ -1,9 +1,14 @@
 package entidades;
 
-import java.io.IOException;
 import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.protocol.BasicHttpContext;
+import org.apache.http.protocol.HttpContext;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -131,18 +136,27 @@ public class Publicidad {
 	}
 	
 	public static Bitmap getBitmapFromURL(String src) {
-	    try {
-	        URL url = new URL(src);
-	        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-	        connection.setDoInput(true);
-	        connection.connect();
-	        InputStream input = connection.getInputStream();
-	        Bitmap myBitmap = BitmapFactory.decodeStream(input);
-	        return myBitmap;
-	    } catch (IOException e) {
-	        e.printStackTrace();
-	        return null;
-	    }
+	    HttpClient httpClient = new DefaultHttpClient();
+		HttpContext localContext = new BasicHttpContext();
+		HttpGet httpGet = new HttpGet(src);
+		InputStream inputStream = null;
+		try {
+			HttpResponse response = httpClient.execute(httpGet,localContext);
+			HttpEntity entity = response.getEntity();
+			inputStream = entity.getContent();
+			return BitmapFactory.decodeStream(inputStream);
+		} catch (Exception e) {
+			System.out.println(e.getLocalizedMessage());
+			return null;
+		}
+//	    	return jsonResponse;
+//	        URL url = new URL(src);
+//	        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+//	        connection.setDoInput(true);
+//	        connection.connect();
+//	        InputStream input = connection.getInputStream();
+//	        Bitmap myBitmap = BitmapFactory.decodeStream(input);
+//	        return myBitmap;
 	}
 
 
@@ -176,8 +190,7 @@ public class Publicidad {
         protected Bitmap doInBackground(String... param) {
             Log.i("ImageLoadTask", "Attempting to load image URL: " + param[0]);
             try {
-                Bitmap b = getBitmapFromURL(param[0]);
-                return b;
+                return getBitmapFromURL(param[0]);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;

@@ -37,7 +37,7 @@ public class LoginActivity extends Activity {
     JSONParser jsonParser = new JSONParser();
  
     // single product url
-    private static final String url_user_detials = "http://10.0.2.2/android_connect/login.php";
+    private static final String url_user_detials = Global.HOST_API+Global.API_FOLDER+"/login.php";
  
     // JSON Node names
     private static final String TAG_SUCCESS = "success";
