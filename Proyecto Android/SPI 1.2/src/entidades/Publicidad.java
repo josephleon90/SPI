@@ -10,11 +10,13 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
 
+import android.app.ProgressDialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.example.spi.Global;
 import com.example.spi.PublicidadAdapter;
 
 // Generated 15-dic-2013 17:08:56 by Hibernate Tools 3.2.1.GA
@@ -149,17 +151,7 @@ public class Publicidad {
 			System.out.println(e.getLocalizedMessage());
 			return null;
 		}
-//	    	return jsonResponse;
-//	        URL url = new URL(src);
-//	        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-//	        connection.setDoInput(true);
-//	        connection.connect();
-//	        InputStream input = connection.getInputStream();
-//	        Bitmap myBitmap = BitmapFactory.decodeStream(input);
-//	        return myBitmap;
 	}
-
-
 
 	@Override
 	public String toString() {
@@ -169,28 +161,39 @@ public class Publicidad {
 				+ ", fecha_vencimiento=" + fecha_vencimiento + "]";
 	}
 	
-	public void loadImage(PublicidadAdapter sta) {
+	public void loadImage(PublicidadAdapter sta, int i,int cantImagenes, ProgressDialog dialogo) {
         // HOLD A REFERENCE TO THE ADAPTER
         this.sta = sta;
         if (imagenURL != null && !imagenURL.equals("")) {
-            new ImageLoadTask().execute(imagenURL);
+            new ImageLoadTask(dialogo,i,cantImagenes).execute(imagenURL);
         } else
         	System.out.println("URL no cargada");
     }
     
 	// ASYNC TASK TO AVOID CHOKING UP UI THREAD
     private class ImageLoadTask extends AsyncTask<String, String, Bitmap> {
+    	int indice;
+    	int cantImagenes;
+    	String nombreImagen;
+    	ProgressDialog dialogo;
  
-        @Override
+        ImageLoadTask(ProgressDialog dialogo,int indice, int cantImagenes){
+        	this.dialogo=dialogo;
+        	this.indice=indice;
+        	this.cantImagenes=cantImagenes;
+        }
+    	
+    	@Override
         protected void onPreExecute() {
-            Log.i("ImageLoadTask", "Loading image...");
+            Log.i("ImageLoadTask", "Cargado de imagenes en proceso...");
         }
  
         // PARAM[0] IS IMG URL
         protected Bitmap doInBackground(String... param) {
-            Log.i("ImageLoadTask", "Attempting to load image URL: " + param[0]);
+            Log.i("ImageLoadTask", "Intentando cargar imagen: " + param[0]);
+            nombreImagen = param[0];
             try {
-                return getBitmapFromURL(param[0]);
+                return getBitmapFromURL(Global.HOST_API+Global.IMAGE_FOLDER+"/"+param[0]);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
@@ -203,14 +206,19 @@ public class Publicidad {
  
         protected void onPostExecute(Bitmap ret) {
             if (ret != null) {
-                Log.i("ImageLoadTask", "Successfully loaded " + codPublicidad + " image");
+                Log.i("ImageLoadTask", "Exitosamente cargada imagen " + nombreImagen );
                 imagen = ret;
                 if (sta != null) {
                     // WHEN IMAGE IS LOADED NOTIFY THE ADAPTER
                     sta.notifyDataSetChanged();
+                    
+                    //Verifico si la imagen es la ultima o no para asi quitar de mensaje
+                    // que se esta cargando
+                    if(indice==cantImagenes-1)
+                    	dialogo.dismiss();
                 }
             } else {
-                Log.e("ImageLoadTask", "Failed to load " + codPublicidad + " image");
+                Log.e("ImageLoadTask", "Fallo al cargar imagen " + nombreImagen);
             }
         }
     }

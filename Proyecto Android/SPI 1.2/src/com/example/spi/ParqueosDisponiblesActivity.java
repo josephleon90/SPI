@@ -45,7 +45,7 @@ public class ParqueosDisponiblesActivity extends Activity {
 	private JSONParser jParser;
 
 	// url to get all products list
-	private static String url_all_products = "http://10.0.2.2/android_connect/reserva_parqueaderos.php";
+	private static String url_all_products = Global.HOST_API+Global.API_FOLDER+"/reserva_parqueaderos.php";
 
 	// JSON Node names
 	private static final String TAG_SUCCESS = "success";

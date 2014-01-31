@@ -38,7 +38,7 @@ public class BuscarGarajesActivity extends Activity {
     HashSet<Garaje> garajesLista;
     
     // url to get all products list
-    private static String url_all_products = "http://10.0.2.2/android_connect/lee_parqueaderos.php";
+    private static String url_all_products = Global.HOST_API+Global.API_FOLDER+"/lee_parqueaderos.php";
  
     // JSON Node names
     private static final String TAG_SUCCESS = "success";
@@ -283,6 +283,7 @@ public class BuscarGarajesActivity extends Activity {
                  public TextView garaje_nombre;
                  public TextView garaje_cod;
                  public TextView garaje_distancia;
+                 public TextView garaje_tiempo;
           
              }
           
@@ -303,10 +304,12 @@ public class BuscarGarajesActivity extends Activity {
                      holder.garaje_nombre = (TextView) vi.findViewById(R.id.garaje_nombre);
                      holder.garaje_cod = (TextView)vi.findViewById(R.id.garaje_id);
                      holder.garaje_distancia = (TextView)vi.findViewById(R.id.garaje_distancia);
+                     holder.garaje_tiempo = (TextView)vi.findViewById(R.id.garaje_tiempo);
                      
                      holder.garaje_nombre.setText("");
                      holder.garaje_cod.setText("");
                      holder.garaje_distancia.setText("");
+                     holder.garaje_tiempo.setText("");
                      
                     /************  Set holder with LayoutInflater ************/
                      vi.setTag( holder );
@@ -318,7 +321,10 @@ public class BuscarGarajesActivity extends Activity {
                  {
                 	 TextView labelDistancia = (TextView)vi.findViewById(R.id.textView1);
                 	 labelDistancia.setVisibility(View.INVISIBLE);
+                	 TextView labelTiempo = (TextView)vi.findViewById(R.id.textView2);
+                	 labelTiempo.setVisibility(View.INVISIBLE);
                 	 holder.garaje_distancia.setVisibility(View.INVISIBLE);
+                	 holder.garaje_tiempo.setVisibility(View.INVISIBLE);
                 	 holder.garaje_nombre.setText("No hay garajes disponibles");
                 	//Indico que no hay garajes disponible para que lo sepa el listener al momento de construir
                 	 holder.garaje_cod.setText("-1"); 
@@ -336,6 +342,7 @@ public class BuscarGarajesActivity extends Activity {
                       holder.garaje_nombre.setText(garaje_temp.getDescripcion());
                       holder.garaje_cod.setText(String.valueOf(garaje_temp.getCodGaraje()));
                       holder.garaje_distancia.setText(garaje_temp.getDistancia());
+                      holder.garaje_tiempo.setText(garaje_temp.getTiempo());
                       
                       /******** Set Item Click Listner for LayoutInflater for each row *******/
      

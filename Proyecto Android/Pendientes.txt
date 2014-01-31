@@ -1,1 +1,2 @@
 Hacer un manual de usuario de la aplicacion.
+Modificar la tabla de puestos, debe tener un campo que diga Disponible

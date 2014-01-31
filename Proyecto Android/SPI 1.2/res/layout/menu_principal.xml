@@ -7,7 +7,7 @@
 	<ImageView
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent"
-		android:src="@drawable/background"
+		android:src="@drawable/background9"
 		android:scaleType="fitXY"
 		android:contentDescription="@string/imagen" >
 	</ImageView>
@@ -30,19 +30,20 @@
 	            android:id="@+id/textView1"
 	            android:layout_width="0dp"
 	            android:layout_height="fill_parent"
-	            android:layout_weight="1"
-	            android:text="@string/menu_TV"
+	            android:layout_weight="0.60"
 	            android:gravity="center"
+	            android:text="@string/menu_TV"
+	            android:textColor="@color/black"
 	            android:textSize="18sp"
-	            android:textStyle="bold"
-	            android:textColor="@color/white"   />
+	            android:textStyle="bold" />
 			
 			<ImageView
-	            android:id="@+id/imageView1"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:contentDescription="@string/logo_des_IV"
-	            android:src="@drawable/logo_sip"/>
+			    android:id="@+id/imageView1"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_weight="0.13"
+			    android:contentDescription="@string/logo_des_IV"
+			    android:src="@drawable/logo" />
 	
 	    </LinearLayout>
 
@@ -59,16 +60,16 @@
 	    <LinearLayout
 	        android:layout_width="fill_parent"
 	        android:layout_height="75dp" 
-	        android:layout_marginTop="8dp">
-	
+	        android:layout_marginTop="23dp">
+
 	        <ImageView
 	            android:id="@+id/buscar_IV"
-	            android:layout_width="wrap_content"
-	            android:layout_height="fill_parent"
-	            android:src="@drawable/ic_launcher"
-	            android:layout_weight="0.15"
+	            android:layout_width="66dp"
+	            android:layout_height="61dp"
+	            android:layout_weight="0.07"
+	            android:contentDescription="@string/imagen"
 	            android:gravity="center"
-	            android:contentDescription="@string/imagen" />
+	            android:src="@drawable/buscar1" />
 	
 	        <LinearLayout
 	            android:layout_width="0dp"
@@ -83,7 +84,7 @@
 	                android:text="@string/buscar_TV"
 	                android:textAppearance="?android:attr/textAppearanceMedium" 
 	                android:gravity="center"
-	                android:textColor="@color/white" 
+	                android:textColor="@color/black" 
 	                android:textStyle="bold" />
 	
 	            <TextView
@@ -94,7 +95,7 @@
 	                android:textAppearance="?android:attr/textAppearanceSmall"
 	                android:gravity="left" 
 	                android:layout_gravity="bottom"
-	                android:textColor="@color/white"
+	                android:textColor="@color/black"
 	                 />
 	
 	        </LinearLayout>
@@ -117,12 +118,12 @@
 	
 	        <ImageView
 	            android:id="@+id/avisos_IV"
-	            android:layout_width="wrap_content"
-	            android:layout_height="fill_parent"
-	            android:src="@drawable/ic_launcher"
-	            android:layout_weight="0.15"
+	            android:layout_width="66dp"
+	            android:layout_height="61dp"
+	            android:layout_weight="0.07"
+	            android:contentDescription="@string/imagen"
 	            android:gravity="center"
-	            android:contentDescription="@string/imagen" />
+	            android:src="@drawable/avisos2" />
 	
 	        <LinearLayout
 	            android:layout_width="0dp"
@@ -137,7 +138,7 @@
 	                android:text="@string/avisos_TV"
 	                android:textAppearance="?android:attr/textAppearanceMedium" 
 	                android:gravity="center"
-	                android:textColor="@color/white"
+	                android:textColor="@color/black"
 	                android:textStyle="bold" />
 	
 	            <TextView
@@ -147,7 +148,7 @@
 	                android:text="@string/avisos_desc_TV"
 	                android:textAppearance="?android:attr/textAppearanceSmall"
 	                android:gravity="left"
-	                android:textColor="@color/white"   />
+	                android:textColor="@color/black"   />
 	
 	        </LinearLayout>
 	        

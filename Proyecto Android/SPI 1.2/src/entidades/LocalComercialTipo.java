@@ -12,13 +12,8 @@ public class LocalComercialTipo  implements java.io.Serializable {
 
 
      private int codLocComTipo;
-     private LocalComercial localComercial;
      private String descripcion;
      private Set<LocalComercial> localComercials = new HashSet<LocalComercial>(0);
-
-    public LocalComercialTipo() {
-    }
-
 	
     public LocalComercialTipo(int codLocComTipo, String descripcion) {
         this.codLocComTipo = codLocComTipo;
@@ -26,7 +21,6 @@ public class LocalComercialTipo  implements java.io.Serializable {
     }
     public LocalComercialTipo(int codLocComTipo, LocalComercial localComercial, String descripcion, Set<LocalComercial> localComercials) {
        this.codLocComTipo = codLocComTipo;
-       this.localComercial = localComercial;
        this.descripcion = descripcion;
        this.localComercials = localComercials;
     }
@@ -38,13 +32,7 @@ public class LocalComercialTipo  implements java.io.Serializable {
     public void setCodLocComTipo(int codLocComTipo) {
         this.codLocComTipo = codLocComTipo;
     }
-    public LocalComercial getLocalComercial() {
-        return this.localComercial;
-    }
-    
-    public void setLocalComercial(LocalComercial localComercial) {
-        this.localComercial = localComercial;
-    }
+
     public String getDescripcion() {
         return this.descripcion;
     }
@@ -59,6 +47,39 @@ public class LocalComercialTipo  implements java.io.Serializable {
     public void setLocalComercials(Set<LocalComercial> localComercials) {
         this.localComercials = localComercials;
     }
+	@Override
+	public String toString() {
+		return "LocalComercialTipo [codLocComTipo=" + codLocComTipo
+				+ ", descripcion=" + descripcion + ", localComercials="
+				+ localComercials + "]";
+	}
+	@Override
+	public int hashCode() {
+		return this.codLocComTipo;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		LocalComercialTipo other = (LocalComercialTipo) obj;
+		if (codLocComTipo != other.codLocComTipo)
+			return false;
+		if (descripcion == null) {
+			if (other.descripcion != null)
+				return false;
+		} else if (!descripcion.equals(other.descripcion))
+			return false;
+		if (localComercials == null) {
+			if (other.localComercials != null)
+				return false;
+		} else if (!localComercials.equals(other.localComercials))
+			return false;
+		return true;
+	}
 
 
 
