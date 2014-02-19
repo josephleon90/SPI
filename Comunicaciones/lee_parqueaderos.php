@@ -4,7 +4,7 @@
  * Following code will list all the garajes
  */
  //Url para prueba
- //http://localhost/android_connect/lee_parqueaderos.php?pos_gps=-2.192589,-79.896337
+ //http://localhost/android_connect/lee_parqueaderos.php?pos_gps=-2.187121,-79.881488
  
 // array for JSON response
 $response = array();
@@ -21,7 +21,7 @@ if (isset($_GET["pos_gps"])) {
 	// get all garajes from garajes table
 	$result = mysql_query("
 SELECT 	A.ID,
-		A.COD_CLIENTE,
+		A.CLIENTE_ID,
 		A.DESCRIPCION,
 		A.NUM_PISOS,
 		A.NUM_PARQUEOS,
@@ -31,13 +31,13 @@ SELECT 	A.ID,
 		B.COD_DESCRIPCION,
 		B.PISO
 FROM 	GARAJE A, PARQUEO B
-WHERE	A.ID = B.COD_GARAJE AND
+WHERE	A.ID = B.GARAJE_ID AND
 		A.ESTADO = 1 AND
 		B.ESTADO = 1 AND
-		B.ID NOT IN (SELECT 	C.ID 
+		B.OCUPADO = 0 AND
+		B.ID NOT IN (SELECT 	C.PARQUEO_ID 
                               FROM 		RESERVACION  C
-                              WHERE 	C.FECHA_RESERVACION + INTERVAL 10 MINUTE >= NOW() AND 
-                              			C.ESTADO=1 )
+                              WHERE 	C.FECHA_RESERVACION + INTERVAL 10 MINUTE >= NOW() )
 										
 										") or die(mysql_error());
 	 
@@ -51,7 +51,7 @@ WHERE	A.ID = B.COD_GARAJE AND
 			// temp user array
 			$product = array();
 		$product["COD_GARAJE"] = $row["ID"];
-		$product["COD_CLIENTE"] = $row["COD_CLIENTE"];
+		$product["COD_CLIENTE"] = $row["CLIENTE_ID"];
 		$product["DESCRIPCION"] = $row["DESCRIPCION"];
 		$product["NUM_PISOS"] = $row["NUM_PISOS"];
 		$product["NUM_PARQUEOS"] = $row["NUM_PARQUEOS"];

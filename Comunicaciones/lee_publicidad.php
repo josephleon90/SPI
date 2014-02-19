@@ -23,11 +23,11 @@ if (isset($_GET["tipo_loc_com"])) {
 	$result = mysql_query("SELECT 	A.*
 FROM 	PUBLICIDAD A,
 		LOCAL_COMERCIAL B, 
-		LOCAL_COMERCIAL_TIPO C
+		PUBLICIDAD_TIPO C
 WHERE 	A.LOCAL_COMERCIAL_ID = B.ID AND
 		A.ESTADO = 1 AND
 		A.FECHA_VENCIMIENTO >= NOW() AND
-		B.LOC_COM_TIPO_ID = C.ID AND
+		B.PUBLICIDAD_TIPO_ID = C.ID AND
 		C.ID = $tipo_loc_com") or die(mysql_error());
 	 
 	// check for empty result

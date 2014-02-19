@@ -1,2 +1,4 @@
-Hacer un manual de usuario de la aplicacion.
-Modificar la tabla de puestos, debe tener un campo que diga Disponible
+-Hacer un manual de usuario de la aplicacion(esta a medias)
+-Modificar la tabla de puestos, debe tener un campo que diga Disponible(listo)
+-Ordernar publicidades segun tipo de afiliacion del local comercial
+-Cambiar forma de donde se extraen las imagenes

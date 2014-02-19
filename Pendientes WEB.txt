@@ -1,0 +1,6 @@
+-Validar que las reservaciones solo se hagan con usuarios tipo conductor
+-Validar que al agregar registros o reservaciones el parqueo pertenezca al garaje dicho en el campo garaje
+-Validar que al agregar el registro a la reservacion, el registro sea de ese garaje y de ese parqueo
+-Validar que no pueda un usuario local de parqueo ingresar otros parqueos que no sea de su propio garaje
+-Modificar account page agregando la info de la tabla cliente para que el local de parqueo tambien pueda modificar eso
+- Cada vez que se inserte un registro en la tabla registro sin hora de salida ese parqueo debe marcarse como ocupado(tratar de hacerlo con el join de model_table)

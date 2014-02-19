@@ -28,9 +28,9 @@ if (isset($_GET['cod_parqueo']) && isset($_GET['cod_garaje']) && isset($_GET['co
 	
 
     $result = mysql_query(	"INSERT INTO 
-							RESERVACION(cod_parqueo, 
-										cod_garaje, 
-										cod_usuario, 
+							RESERVACION(parqueo_id, 
+										garaje_id, 
+										usuario_id, 
 										fecha_registro, 
 										fecha_reservacion, 
 										estado ) 

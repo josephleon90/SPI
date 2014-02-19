@@ -1,0 +1,1 @@
+descomentar la extension del php.ini "extension=php_fileinfo.dll" para poder cargar los archivos

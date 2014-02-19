@@ -22,7 +22,7 @@ if (isset($_GET["usuario_login"]) and isset($_GET["password_login"])) {
     $usuario_login = $_GET['usuario_login'];
 	$password_login = $_GET['password_login'];
     // get a USUARIO from usuario table
-    $result = mysql_query("SELECT * FROM USUARIO WHERE usuario_login = '$usuario_login' AND password_login = '$password_login' AND estado=1 AND tipo = 'USUARIO'");
+    $result = mysql_query("SELECT * FROM USUARIO WHERE email = '$usuario_login' AND password = '$password_login' AND estado=1 AND usuario_tipo_id = 1");
  
     if (!empty($result)) {
         // check for empty result
